@@ -61,3 +61,36 @@
   .pressVideos{height:auto}
   .pressVideos figure{height:230px}
 }
+
+
+/* V3.2.2 Video layout fix */
+.pressMediaGrid{
+  display:grid !important;
+  grid-template-columns:minmax(0,2.2fr) minmax(260px,.8fr) !important;
+  gap:18px;
+  align-items:stretch !important;
+}
+.pressMain{height:100% !important;}
+.pressMain img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.pressVideos{
+  display:grid !important;
+  grid-template-rows:repeat(3,1fr);
+  gap:12px;
+  height:100% !important;
+  align-self:stretch;
+}
+.pressVideos>*{
+  min-height:0 !important;
+  height:100% !important;
+}
+.pressVideos video,
+.pressVideos img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
