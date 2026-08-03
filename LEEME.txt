@@ -1,0 +1,7 @@
+ALFACOLOR EXPERIENCE · CONTENIDO REAL · FLIPBOOK INTEGRADO
+
+1. Suba index.html, styles.css, app.js y la carpeta assets completa a GitHub.
+2. Conserve exactamente la estructura de carpetas.
+3. El catálogo se hojea dentro de la experiencia; no abre un PDF externo.
+4. Se corrigió la orientación de las fotografías Heidelberg y Sublimación.
+5. Funciona con mouse, flechas del teclado y gestos táctiles.

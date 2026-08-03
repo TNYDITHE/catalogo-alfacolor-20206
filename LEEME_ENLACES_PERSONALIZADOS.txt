@@ -1,0 +1,20 @@
+ALFACOLOR EXPERIENCE — ENLACES PERSONALIZADOS
+
+Publica el contenido de esta carpeta en un solo repositorio de GitHub Pages.
+Después comparte la misma dirección agregando el parámetro correspondiente:
+
+Antonio Caballero:  ?asesor=antonio
+Carlos Castañeda:    ?asesor=carlos
+Daniel Guerrero:     ?asesor=daniel
+Martha Martínez:     ?asesor=martha
+
+Ejemplo, si la página publicada es:
+https://TU_USUARIO.github.io/alfacolor-experience/
+
+Los enlaces serán:
+https://TU_USUARIO.github.io/alfacolor-experience/?asesor=antonio
+https://TU_USUARIO.github.io/alfacolor-experience/?asesor=carlos
+https://TU_USUARIO.github.io/alfacolor-experience/?asesor=daniel
+https://TU_USUARIO.github.io/alfacolor-experience/?asesor=martha
+
+Cada liga cambia el nombre, WhatsApp, correo, mensaje automático y tarjeta de contacto del asesor.
