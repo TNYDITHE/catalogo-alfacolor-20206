@@ -100,28 +100,34 @@ const btn=document.getElementById('audioBtn'),audio=document.getElementById('hei
 })();
 
 
-// Sincroniza exactamente la altura de los tres videos con la foto principal.
+// Carga los videos de producción solamente cuando la sección está próxima a verse.
 (() => {
-  const grid = document.querySelector('.pressMediaGrid');
-  const main = document.querySelector('.pressMediaGrid .pressMain');
-  const videos = document.querySelector('.pressVideos');
-  if (!grid || !main || !videos) return;
+  const videos = [...document.querySelectorAll('video[data-lazy-video]')];
+  if (!videos.length) return;
 
-  const syncHeight = () => {
-    if (window.matchMedia('(max-width: 950px)').matches) {
-      videos.style.height = '';
-      return;
-    }
-    const height = Math.round(main.getBoundingClientRect().height);
-    if (height > 0) videos.style.height = `${height}px`;
+  const loadVideo = (video) => {
+    if (video.dataset.loaded === 'true') return;
+    const source = video.querySelector('source[data-src]');
+    if (!source) return;
+    source.src = source.dataset.src;
+    source.removeAttribute('data-src');
+    video.load();
+    video.dataset.loaded = 'true';
+    video.play().catch(() => {});
   };
 
-  if (main.complete) syncHeight();
-  else main.addEventListener('load', syncHeight, { once: true });
-
-  window.addEventListener('resize', syncHeight);
-  if ('ResizeObserver' in window) {
-    new ResizeObserver(syncHeight).observe(main);
+  if (!('IntersectionObserver' in window)) {
+    videos.forEach(loadVideo);
+    return;
   }
-  requestAnimationFrame(syncHeight);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      loadVideo(entry.target);
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '500px 0px', threshold: 0.01 });
+
+  videos.forEach(video => observer.observe(video));
 })();

@@ -1,0 +1,5 @@
+ALFACOLOR EXPERIENCE V3.2.1
+
+- Los tres videos de Capacidad Productiva quedan contenidos dentro de la misma altura de la fotografía principal.
+- El tercer video ya no invade el apartado de Acabados.
+- Se conserva el comportamiento adaptable para iPad y teléfono.

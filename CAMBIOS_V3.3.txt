@@ -1,0 +1,7 @@
+ALFACOLOR EXPERIENCE V3.3
+
+- Se eliminó la regla antigua pressGrid que provocaba el hueco en escritorio.
+- Foto principal y columna de tres videos comparten una sola fila y altura exacta.
+- En iPhone y tablet se conserva el acomodo responsivo.
+- Videos de producción con carga diferida para mejorar el uso con datos celulares.
+- Imágenes inferiores con carga diferida.
