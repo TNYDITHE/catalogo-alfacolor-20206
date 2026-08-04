@@ -98,3 +98,30 @@ const btn=document.getElementById('audioBtn'),audio=document.getElementById('hei
   if(email){ email.href=`mailto:${advisor.email}`; email.textContent=advisor.email; }
   document.title=`Alfacolor Experience · ${advisor.name}`;
 })();
+
+
+// Sincroniza exactamente la altura de los tres videos con la foto principal.
+(() => {
+  const grid = document.querySelector('.pressMediaGrid');
+  const main = document.querySelector('.pressMediaGrid .pressMain');
+  const videos = document.querySelector('.pressVideos');
+  if (!grid || !main || !videos) return;
+
+  const syncHeight = () => {
+    if (window.matchMedia('(max-width: 950px)').matches) {
+      videos.style.height = '';
+      return;
+    }
+    const height = Math.round(main.getBoundingClientRect().height);
+    if (height > 0) videos.style.height = `${height}px`;
+  };
+
+  if (main.complete) syncHeight();
+  else main.addEventListener('load', syncHeight, { once: true });
+
+  window.addEventListener('resize', syncHeight);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(syncHeight).observe(main);
+  }
+  requestAnimationFrame(syncHeight);
+})();
